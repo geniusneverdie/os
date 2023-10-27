@@ -1,0 +1,71 @@
+
+OpenSBI v0.4 (Jul  2 2019 11:53:53)
+   ____                    _____ ____ _____
+  / __ \                  / ____|  _ \_   _|
+ | |  | |_ __   ___ _ __ | (___ | |_) || |
+ | |  | | '_ \ / _ \ '_ \ \___ \|  _ < | |
+ | |__| | |_) |  __/ | | |____) | |_) || |_
+  \____/| .__/ \___|_| |_|_____/|____/_____|
+        | |
+        |_|
+
+Platform Name          : QEMU Virt Machine
+Platform HART Features : RV64ACDFIMSU
+Platform Max HARTs     : 8
+Current Hart           : 0
+Firmware Base          : 0x80000000
+Firmware Size          : 112 KB
+Runtime SBI Version    : 0.1
+
+PMP0: 0x0000000080000000-0x000000008001ffff (A)
+PMP1: 0x0000000000000000-0xffffffffffffffff (A,R,W,X)
+(THU.CST) os is loading ...
+
+Special kernel symbols:
+  entry  0xc0200036 (virtual)
+  etext  0xc02041c8 (virtual)
+  edata  0xc020a048 (virtual)
+  end    0xc02115a0 (virtual)
+Kernel executable memory footprint: 70KB
+memory management: default_pmm_manager
+membegin 80200000 memend 88000000 mem_size 7e00000
+physcial memory map:
+  memory: 0x07e00000, [0x80200000, 0x87ffffff].
+check_alloc_page() succeeded!
+check_pgdir() succeeded!
+check_boot_pgdir() succeeded!
+check_vma_struct() succeeded!
+---1----Store/AMO page fault
+page fault at 0x00000100: K/W
+---2----check_pgfault() succeeded!
+check_vmm() succeeded.
+SWAP: manager = lru swap manager
+BEGIN check_swap: count 2, total 31597
+setup Page Table for vaddr 0X1000, so alloc a page
+setup Page Table vaddr 0~4MB OVER!
+set up init env for check_swap begin!
+Store/AMO page fault
+page fault at 0x00002000: K/W
+Store/AMO page fault
+page fault at 0x00001000: K/W
+Store/AMO page fault
+page fault at 0x00003000: K/W
+Store/AMO page fault
+page fault at 0x00004000: K/W
+write Virt Page c in lru_check_swap
+write Virt Page a in lru_check_swap
+write Virt Page d in lru_check_swap
+write Virt Page b in lru_check_swap
+write Virt Page e in lru_check_swap
+Store/AMO page fault
+page fault at 0x00005000: K/W
+swap_out: i 0, store page in vaddr 0x2000 to disk swap entry 3
+write Virt Page b in lru_check_swap
+Store/AMO page fault
+page fault at 0x00002000: K/W
+swap_out: i 0, store page in vaddr 0x1000 to disk swap entry 2
+swap_in: load disk swap entry 3 with swap_page in vadr 0x2000
+kernel panic at kern/mm/swap_lru.c:112:
+    assertion failed: pgfault_num==5
+Welcome to the kernel debug monitor!!
+Type 'help' for a list of commands.
